@@ -1,0 +1,10 @@
+services:
+  app:
+    image: php:8.2-apache
+    volumes:
+      - ./src:/var/www/html # Mount your PHP application code
+      - ./data:/var/www/html/data # Mount a directory for your SQLite database file
+    ports:
+      - 8080:80
+volumes:
+  data: null
