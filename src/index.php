@@ -19,7 +19,9 @@ $totalPages = ceil($totalUsers / $limit);
 
 // Buscar usuários da página atual
 $users = $connection->query("SELECT * FROM users ORDER BY name LIMIT $limit OFFSET $offset")->fetchAll();
-
+if($page >1 && count($users)==0) {
+    header("Location: /index.php?page=".$page-1);
+}
 ?>
 
 <!DOCTYPE html>
